@@ -1,17 +1,29 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {Link} from "react-router-dom";
 import {CART_ROUTE, MAIN_ROUTE} from "../../untils/const";
 import logo from '../../images/logo.svg'
 import cartImg from '../../images/cart.svg'
 import cl from './Header.module.css'
 import Modal from "../UI/Modal/Modal";
+import LoginForm from "../Forms/LoginForm/LoginForm";
+import {observe} from "mobx";
+import {observer} from "mobx-react-lite";
+import {AuthContext} from "../../context";
 
-const Header = () => {
+const Header = observer(() => {
+    const {user} = useContext(AuthContext);
+
     const login = false;
     let num = 10;
 
     const [signVisible, setSignVisible] = useState(false);
     const [registerVisible, setRegisterVisible] = useState(false);
+
+    const LogOut = () => {
+        user.setIsAuth(false);
+        user.setUser({});
+        localStorage.removeItem('token')
+    }
 
     return (
         <header className={cl.header}>
@@ -20,16 +32,22 @@ const Header = () => {
                     <Link to={MAIN_ROUTE} className={cl.logo}>
                         <img src={logo} alt="Крутой логотип для хорошей компании"/>
                     </Link>
-                    { login ?
-                        <Link to={CART_ROUTE} className={cl.cart}>
-                            <img src={cartImg} alt="cart"/>
-                            {
-                                num !== 0 &&
-                                <div className={cl.num}>
-                                    {num}
-                                </div>
-                            }
-                        </Link> :
+                    { user.isAuth ?
+                        <div className={cl.authorize}>
+                            <Link to={CART_ROUTE} className={cl.cart}>
+                                <img src={cartImg} alt="cart"/>
+                                {
+                                    num !== 0 &&
+                                    <div className={cl.num}>
+                                        {num}
+                                    </div>
+                                }
+                            </Link>
+                            <div onClick={()=>LogOut()} className={cl.sign}>
+                                Log out
+                            </div>
+                        </div>
+                        :
                         <div className={cl.authorize}>
                             <div onClick={()=>setSignVisible(true)} className={cl.sign}>
                                 sign in
@@ -38,10 +56,10 @@ const Header = () => {
                                 sign up
                             </div>
                             <Modal visible={signVisible} setVisible={setSignVisible}>
-                                sign in
+                                <LoginForm setSignVisible={setSignVisible}/>
                             </Modal>
                             <Modal visible={registerVisible} setVisible={setRegisterVisible}>
-                                sign up
+                                sign up - not realized(
                             </Modal>
                         </div>
 
@@ -50,6 +68,6 @@ const Header = () => {
             </div>
         </header>
     );
-};
+});
 
 export default Header;

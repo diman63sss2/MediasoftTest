@@ -4,7 +4,7 @@ import Button from "../../UI/Button/Button";
 
 const CatalogListItem = ({product}) => {
     return (
-        <li class={cl.item}>
+        <li className={cl.item}>
             <div className={cl.content}>
                 <div className={cl.image}>
                     <span className={cl.category}>

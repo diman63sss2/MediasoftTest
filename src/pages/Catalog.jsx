@@ -19,7 +19,7 @@ const Catalog = () => {
         [])
 
     return (
-        <section class={'catalog'}>
+        <section className={'catalog'}>
             { isProductsLoading ?
                 <div className="container">
                     Загрузка

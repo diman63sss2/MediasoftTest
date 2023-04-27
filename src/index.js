@@ -2,9 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './styles/index.css';
 import App from './App';
+import UserStore from "./store/UserStore";
+import {AuthContext} from './context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <App />
+    <AuthContext.Provider value={{
+        user: new UserStore()
+    }}>
+        <App />
+    </AuthContext.Provider>
 );
 
