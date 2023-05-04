@@ -1,5 +1,7 @@
 .pagination {
     display: flex;
+    justify-content: center;
+    margin-left: 200px;
 }
 
 .item {
@@ -15,6 +17,10 @@
     background: #4c9bd3;
     cursor: pointer;
     transition: 0.3s all ease;
+}
+
+.item:last-child {
+    margin-right: 0;
 }
 
 .item:hover{

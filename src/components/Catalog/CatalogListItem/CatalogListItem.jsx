@@ -14,15 +14,12 @@ const CatalogListItem = ({product}) => {
                 </div>
                 <div className={cl.info}>
                     <h3 className={cl.title}>
-                        {product.title}
-                    </h3>
-                    <p className={cl.description}>
-                        {   product.description.length > 100 ?
-                            product.description.substr(0, 100) + '...'
+                        {   product.title.length > 40 ?
+                            product.title.substr(0, 40) + '...'
                             :
-                            product.description
+                            product.title
                         }
-                    </p>
+                    </h3>
                     <span className={cl.price}>
                         {product.price}$
                     </span>

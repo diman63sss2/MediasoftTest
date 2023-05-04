@@ -13,7 +13,6 @@ import {AuthContext} from "../../context";
 const Header = observer(() => {
     const {user} = useContext(AuthContext);
 
-    const login = false;
     let num = 10;
 
     const [signVisible, setSignVisible] = useState(false);

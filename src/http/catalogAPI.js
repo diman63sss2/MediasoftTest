@@ -2,6 +2,12 @@ import {$host} from "./index";
 
 
 export const getProducts = async (settings) => {
-    const axiosAPI = $host;
-    return await axiosAPI.get('/products')
+    return await $host.get('/products')
 }
+
+
+export const getCategories = async () => {
+    return await $host.get('/products/categories')
+}
+
+

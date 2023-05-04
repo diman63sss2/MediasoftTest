@@ -1,6 +1,6 @@
 import React from "react";
 import {CART_ROUTE, ERROR_ROUTE, MAIN_ROUTE, ORDER_ROUTE, OTHER_ROUTE} from "../untils/const";
-import Catalog from "../pages/Catalog";
+import Catalog from "../pages/Catalog/Catalog";
 import Cart from "../pages/Cart";
 import Order from "../pages/Order";
 import Page404 from "../pages/Page404";
