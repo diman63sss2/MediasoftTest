@@ -21,6 +21,11 @@ const Catalog = () => {
     const [fetchProducts, isProductsLoading] = useFetching(async () => {
         const response = await getProducts();
         setProducts(response.data);
+        /*add field for compare*/
+        response.data.filter((product) => {
+            product.compare = false;
+            return product
+        })
         setFilteredProducts(response.data);
     })
 
@@ -34,7 +39,7 @@ const Catalog = () => {
         }, // eslint-disable-next-line
         [filters])
 
-    function categoryFiltering(elements = products){
+    const  categoryFiltering = (elements = products) => {
         setFilteredProducts(filterByProperty(elements, filters));
     }
 

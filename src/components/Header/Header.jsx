@@ -13,8 +13,6 @@ import {AuthContext} from "../../context";
 const Header = observer(() => {
     const {user} = useContext(AuthContext);
 
-    let num = 10;
-
     const [signVisible, setSignVisible] = useState(false);
     const [registerVisible, setRegisterVisible] = useState(false);
 
@@ -36,9 +34,9 @@ const Header = observer(() => {
                             <Link to={CART_ROUTE} className={cl.cart}>
                                 <img src={cartImg} alt="cart"/>
                                 {
-                                    num !== 0 &&
+                                    user.numberProducts !== 0 &&
                                     <div className={cl.num}>
-                                        {num}
+                                        {user.numberProducts}
                                     </div>
                                 }
                             </Link>

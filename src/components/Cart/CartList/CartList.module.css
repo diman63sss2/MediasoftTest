@@ -1,0 +1,7 @@
+.list {
+    border: 1px solid black;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #e1e1e1;
+    margin-bottom: 40px;
+}

@@ -1,11 +1,31 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import {AuthContext} from "../context";
+import {observer} from "mobx-react-lite";
+import CatalogList from "../components/Catalog/CatalogList/CatalogList";
+import CartList from "../components/Cart/CartList/CartList";
+import CompareList from "../components/Cart/CompareList/CompareList";
 
-const Cart = () => {
+const Cart = observer(() => {
+    const {user} = useContext(AuthContext);
     return (
-        <div>
+        <div className="container">
             Cart
+            <CartList/>
+            {user.products.filter((el)=> {
+                if(el.compare){
+                    return el;
+                }
+                return
+            }).length >= 2 &&
+                <CompareList products={JSON.parse(JSON.stringify(user.products)).filter((el)=> {
+                    if(el.compare){
+                        return el;
+                    }
+                    return
+                })}/>
+            }
         </div>
     );
-};
+});
 
 export default Cart;
