@@ -9,7 +9,6 @@ const Cart = observer(() => {
     const {user} = useContext(AuthContext);
     return (
         <div className="container">
-            Cart
             <CartList/>
             {user.products.filter((el)=> {
                 if(el.compare){

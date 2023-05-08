@@ -22,17 +22,5 @@
 }
 
 .button:disabled {
-    cursor: not-allowed;
-}
-
-.button:disabled:hover:after {
-    content: 'Нужна авторизация.';
-    position: absolute;
-    background: white;
-    box-shadow: 2px 2px 3px 0px black;
-    right: -20px;
-    top:-25px;
-    padding: 5px;
-    border-radius: 5px;
-    color: black;
+    opacity: 0.6;
 }

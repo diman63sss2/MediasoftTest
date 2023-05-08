@@ -46,11 +46,11 @@ const CatalogListItem = observer(({product}) => {
             </div>
             <div className={cl.additional}>
                 {user.isAuth ?
-                    <Button onClick={()=>addProduct()}>
+                    <Button className={cl.button} onClick={()=>addProduct()}>
                         Добавить в корзину
                     </Button>
                     :
-                    <Button disabled>
+                    <Button className={cl.button} disabled>
                         Добавить в корзину
                     </Button>
                 }
