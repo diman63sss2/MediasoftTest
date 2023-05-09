@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import OrderInfo from "../components/Order/OrderInfo/OrderInfo";
+import OrderCart from "../components/Order/OrderCart/OrderCart";
 
 const Order = () => {
 
@@ -14,7 +15,7 @@ const Order = () => {
         case 'cart':
             return (
                 <div className="container">
-                    cart
+                    <OrderCart setStage={setStage}/>
                 </div>
             )
     }
