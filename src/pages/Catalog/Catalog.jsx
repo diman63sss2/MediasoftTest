@@ -1,4 +1,4 @@
-import React, {memo, useEffect, useMemo, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useFetching} from "../../components/hooks/useFetching";
 import {getProducts} from "../../http/catalogAPI";
 import CatalogList from "../../components/Catalog/CatalogList/CatalogList";
@@ -17,7 +17,8 @@ const Catalog = () => {
         page: 1,
         onPage: 8,
         category: null
-    })
+    });
+
     const [fetchProducts, isProductsLoading] = useFetching(async () => {
         const response = await getProducts();
         setProducts(response.data);

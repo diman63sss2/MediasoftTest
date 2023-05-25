@@ -8,10 +8,8 @@ const OrderInfo = ({setStage}) => {
         register,
         formState: {
             errors,
-            isValid
         },
         handleSubmit,
-        reset
     } = useForm();
 
     const onSubmit = (data) => {

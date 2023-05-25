@@ -1,7 +1,6 @@
 import React, {useContext} from 'react';
 import {AuthContext} from "../context";
 import {observer} from "mobx-react-lite";
-import CatalogList from "../components/Catalog/CatalogList/CatalogList";
 import CartList from "../components/Cart/CartList/CartList";
 import CompareList from "../components/Cart/CompareList/CompareList";
 

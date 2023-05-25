@@ -6,7 +6,6 @@ import cartImg from '../../images/cart.svg'
 import cl from './Header.module.css'
 import Modal from "../UI/Modal/Modal";
 import LoginForm from "../Forms/LoginForm/LoginForm";
-import {observe} from "mobx";
 import {observer} from "mobx-react-lite";
 import {AuthContext} from "../../context";
 
