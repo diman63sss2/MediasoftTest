@@ -7,6 +7,7 @@ import CatalogPagination from "../../components/Catalog/CatalogPagination/Catalo
 import CatalogCategories from "../../components/Catalog/CatalogCategories/CatalogCategories";
 import cl from './catalog.module.css';
 import filterByProperty from "../../untils/filterCategory";
+import Loader from "../../components/Loader/Loader";
 
 const Catalog = () => {
 
@@ -47,7 +48,7 @@ const Catalog = () => {
 
     return (
         <section>
-            {isProductsLoading && <div className="container">Loading...</div>}
+            {isProductsLoading && <Loader/>}
             {filteredProducts && (
                  <div className="container">
                     <CatalogFilters filters={filters} setFilters={setFilters}/>

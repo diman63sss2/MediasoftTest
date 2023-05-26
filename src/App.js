@@ -7,6 +7,7 @@ import {observer} from "mobx-react-lite";
 import {AuthContext} from "./context";
 import {useFetching} from "./components/hooks/useFetching";
 import jwtDecode from "jwt-decode";
+import Footer from "./components/Footer/Footer";
 
 const App = observer(() => {
 
@@ -53,9 +54,10 @@ const App = observer(() => {
       <BrowserRouter>
         { isCheckLoading && <div>ЗАГРУЗКА.................</div>}
         { user.isAuth !== null && (
-            <div>
+            <div className='main'>
                 <Header/>
                 <AppRouter/>
+                <Footer/>
             </div>
         )}
 

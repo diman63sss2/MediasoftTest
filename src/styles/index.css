@@ -13,6 +13,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  margin-bottom: 20px;
+}
+
 .container {
   width: 1240px;
   margin-left: auto;
@@ -26,4 +36,8 @@ button {
 
 .not-allowed {
   cursor: not-allowed ;
+}
+
+.mapboxgl-ctrl-attrib-inner {
+  display: none;
 }

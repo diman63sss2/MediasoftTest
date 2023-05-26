@@ -1,5 +1,5 @@
 import React, {useContext, useState} from 'react';
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {CART_ROUTE, MAIN_ROUTE} from "../../untils/const";
 import logo from '../../images/logo.svg'
 import cartImg from '../../images/cart.svg'
@@ -11,7 +11,7 @@ import {AuthContext} from "../../context";
 
 const Header = observer(() => {
     const {user} = useContext(AuthContext);
-
+    const navigate = useNavigate();
     const [signVisible, setSignVisible] = useState(false);
     const [registerVisible, setRegisterVisible] = useState(false);
 
@@ -19,6 +19,7 @@ const Header = observer(() => {
         user.setIsAuth(false);
         user.setUser({});
         localStorage.removeItem('token')
+        navigate('/');
     }
 
     return (
